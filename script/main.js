@@ -68,3 +68,28 @@ displayPhotos(images);
 //  renderPhoto('http://picsum.photos/id/10/300/150');
 //  renderPhoto('http://picsum.photos/id/20/300/150');
 //  renderPhoto('http://picsum.photos/id/30/300/150');
+
+function displayMessage(message){
+    const main = document.querySelector('main');
+    main.innerHTML = '<p class = "alert alert-info alert-center">' + message + '</p>'
+
+}
+
+//displayMessage('ciasteczko');
+
+
+
+
+const canDisplayPhotos= prompt ('czy chcesz wyswietlic zdjecia?')
+
+// if (cimages.length === 0){
+
+if (canDisplayPhotos === "tak"){
+    console.log('zdjecia istnieja');
+    displayPhotos(images);
+}
+else {
+    console.log('coś jeszcze uczynic?');
+    displayMessage('nie ma zdjec');
+}
+
