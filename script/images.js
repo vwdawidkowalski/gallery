@@ -4,17 +4,20 @@ const images = [
     {
         url: "https://picsum.photos/id/40/300/150",
         title: "Kot",
-        author: "samojebka kłota"
+        author: "samojebka kłota",
+        price: 1000
     },
     {
          url: "https://picsum.photos/id/90/300/150",
          title: "Dzban",
-         author: "babka"
+         author: "babka",
+         price: 2000
     },
     {
         url: "https://picsum.photos/id/56/300/150",
          title: "Katowice nocą",
-         author: "nie ja"
+         author: "nie ja",
+         price: 300
 
     }
 

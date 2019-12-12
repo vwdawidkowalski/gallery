@@ -75,10 +75,26 @@ function renderPhoto(image) {
 }
 
 function displayPhotos(images) {
-    for (const image of images) {
+    // for (const image of images) {
+    //     renderPhoto(image);
+    // }
+    images.forEach(function (image){
+        console.group(image.author);
+        console.info(image.title);
+        console.groupEnd();
         renderPhoto(image);
     }
+    )
 }
+
+images.map(function (image) {
+    return image.url;
+})
+
+
+
+
+
 
 //  renderPhoto('http://picsum.photos/id/10/300/150');
 //  renderPhoto('http://picsum.photos/id/20/300/150');
@@ -118,3 +134,9 @@ setTimeout(function () {
     console.info('chowamy loaderka');
     loader.hide();
 }, 1500); //1.5s
+
+
+const groupByPrice = images.reduce(function(memory, image){
+    memory[image.price]= image;
+    return memory;
+})
