@@ -84,10 +84,7 @@ function displayPhotos(images) {
 //  renderPhoto('http://picsum.photos/id/20/300/150');
 //  renderPhoto('http://picsum.photos/id/30/300/150');
 
-function displayMessage(message) {
-    const main = document.querySelector('main');
-    main.innerHTML = '<p class = "alert alert-info alert-center">' + message + '</p>'
-}
+
 
 //displayMessage('ciasteczko');
 

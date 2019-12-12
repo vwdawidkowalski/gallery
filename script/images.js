@@ -3,12 +3,12 @@
 const images = [
     {
         url: "https://picsum.photos/id/40/300/150",
-        title: "kłot",
+        title: "Kot",
         author: "samojebka kłota"
     },
     {
          url: "https://picsum.photos/id/90/300/150",
-         title: "dzban",
+         title: "Dzban",
          author: "babka"
     },
     {
