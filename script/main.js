@@ -22,7 +22,6 @@ function displayImages() {
     console.log('drugi element listy' + images[1]);
 }
 
-
 function displayLastElement() {
     console.log('ostatni element z listy' + images[images.length - 1]);
     console.log(43455234 / 1242);
@@ -30,7 +29,6 @@ function displayLastElement() {
     console.log(43455234 + 1242);
     console.log(43455234 - 1242);
 }
-
 
 function renderPhoto(url) {
     const $img = document.createElement('img');
@@ -49,11 +47,31 @@ function renderPhoto(url) {
 //     const main = document.querySelector('main');
 //     main.append(img);
 
-function renderPhoto(url) {
-    const img = document.createElement('img');//tworzenie obrazu , brak widoczności
-    img.src = url;
+
+//renderowanie zdjęcia - wyswietlanie
+function renderPhoto(image) {
+    const $card = document.createElement('div');//tworzenie obrazu , brak widoczności
+    $card.classList.add('card', 'col-3', 'mx-4');
+
+    
+    const $img = document.createElement('img');
+    $img.src = image.url;
+
+    const $body = document.createElement('div');
+    $body.classList.add('card-body');
+
+    const $title = document.createElement('h5');
+    $title.classList.add('card-title');
+    $title.textContent = image.title;
+
+    $card.append($img);
+    $card.append($body);
+    $card.append($title);
+
+    console.log(image.title);
+
     const main = document.querySelector('main');
-    main.append(img);//wyswietlenie utworzonego obrazka do wyświetlenia
+    main.append($card);//wyswietlenie utworzonego obrazka do wyświetlenia
 }
 
 function displayPhotos(images) {
