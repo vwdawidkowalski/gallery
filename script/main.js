@@ -11,24 +11,24 @@
 //     console.log('PK')
 // }
 
-const isEmpty = (images.length === 0);
-const isEmpty1 = (images.length == 0);
+// const isEmpty = (images.length === 0);
+// const isEmpty1 = (images.length == 0);
 
 
-//definicja funkcji, mozna ja wywolac kiedy sie chce
-function displayImages() {
-    console.log('liczba obrazków' + images.length);
-    console.log('pierwszy element listy' + images[0]);
-    console.log('drugi element listy' + images[1]);
-}
+// //definicja funkcji, mozna ja wywolac kiedy sie chce
+// function displayImages() {
+//     console.log('liczba obrazków' + images.length);
+//     console.log('pierwszy element listy' + images[0]);
+//     console.log('drugi element listy' + images[1]);
+// }
 
-function displayLastElement() {
-    console.log('ostatni element z listy' + images[images.length - 1]);
-    console.log(43455234 / 1242);
-    console.log(43455234 * 1242); //asterix
-    console.log(43455234 + 1242);
-    console.log(43455234 - 1242);
-}
+// function displayLastElement() {
+//     console.log('ostatni element z listy' + images[images.length - 1]);
+//     console.log(43455234 / 1242);
+//     console.log(43455234 * 1242); //asterix
+//     console.log(43455234 + 1242);
+//     console.log(43455234 - 1242);
+// }
 
 function renderPhoto(url) {
     const $img = document.createElement('img');
@@ -87,9 +87,6 @@ function displayPhotos(images) {
     )
 }
 
-images.map(function (image) {
-    return image.url;
-})
 
 
 
@@ -112,31 +109,39 @@ function shouldDisplayPhotos() {
     return (answer.toLowerCase() === 'tak');
 }
 
-function isEmpty3() {
-    return displayImages.length === 0;
+function isEmpty(images) {
+    return images.length === 0;
 }
 
-loader.show();
 
-// if (!isEmpty3()){
-if (shouldDisplayPhotos()) {
-    console.log('zdjecia istnieja');
-    displayPhotos(images);
-} else {
-    console.log('coś jeszcze uczynic?');
-    displayMessage('nie ma zdjec');
+function main(){
+    loader.show();
+
+    fetchPhotosFromRemote()
+        .then(function(){
+            if(!isEmpty(images)){
+
+                displayPhotos(images);
+            }else {
+                displayMessage('nie ma zdjęć');
+            }
+        })
+        .catch(function () {
+            displayErrorMessage();
+        })
+        .finally(function () {
+            loader.hide();
+        })
+        
 }
+
+main();
 
 //długość jeśli jest wieksze od 1 i mniejsze od 10
 // if (displayImages.length > 1 && Image.length <10 )
 
-setTimeout(function () {
-    console.info('chowamy loaderka');
-    loader.hide();
-}, 1500); //1.5s
+// setTimeout(function () {
+//     console.info('chowamy loaderka');
+//     loader.hide();
+// }, 1500); //1.5s
 
-
-const groupByPrice = images.reduce(function(memory, image){
-    memory[image.price]= image;
-    return memory;
-})
