@@ -135,7 +135,6 @@ function main() {
         .catch(function () {
             displayErrorMessage("problem z pobraniem zdjec");
         })
-        .finally(function () {
             loader.hide();
         })
 
