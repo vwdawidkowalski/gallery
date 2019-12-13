@@ -19,6 +19,8 @@ loader.show = function () {
 loader.hide = function () {
     //pobraĆ referencje do loader
     const $loader = document.querySelector('.loader');
+    if ($loader)
+
     //usunąć element z doma
     $loader.remove();
 };

@@ -55,14 +55,14 @@ function renderPhoto(image) {
 
     
     const $img = document.createElement('img');
-    $img.src = image.url;
+    $img.src = image.imageUrl;
 
     const $body = document.createElement('div');
     $body.classList.add('card-body');
 
     const $title = document.createElement('h5');
     $title.classList.add('card-title');
-    $title.textContent = image.title;
+    $title.textContent = image.description;
 
     $card.append($img);
     $card.append($body);
@@ -118,7 +118,7 @@ function main(){
     loader.show();
 
     fetchPhotosFromRemote()
-        .then(function(){
+        .then(function(images){
             if(!isEmpty(images)){
 
                 displayPhotos(images);
@@ -127,7 +127,7 @@ function main(){
             }
         })
         .catch(function () {
-            displayErrorMessage();
+            displayErrorMessage("problem z pobraniem zdjec");
         })
         .finally(function () {
             loader.hide();
