@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "ciasteczko": "echo Sernik",
     "start": "http-server app/",
-    "deploy": "gh-pages app/"
+    "deploy": "gh-pages -d app/"
   },
   "devDependencies": {
     "gh-pages": "^2.1.1",
