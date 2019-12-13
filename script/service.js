@@ -13,7 +13,7 @@ function fetchPhotosFromRemote(){
 
 }
 
-function fetchPhotosLocal(){
+function fetchPhotosFromLocal(){
     return fetchPhotos('data/images.json')
 
 }

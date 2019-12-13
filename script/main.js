@@ -53,7 +53,7 @@ function renderPhoto(image) {
     const $card = document.createElement('div');//tworzenie obrazu , brak widoczności
     $card.classList.add('card', 'col-3', 'mx-4');
 
-    
+
     const $img = document.createElement('img');
     $img.src = image.imageUrl;
 
@@ -78,7 +78,7 @@ function displayPhotos(images) {
     // for (const image of images) {
     //     renderPhoto(image);
     // }
-    images.forEach(function (image){
+    images.forEach(function (image) {
         console.group(image.author);
         console.info(image.title);
         console.groupEnd();
@@ -114,15 +114,21 @@ function isEmpty(images) {
 }
 
 
-function main(){
+function main() {
     loader.show();
 
-    fetchPhotosFromRemote()
-        .then(function(images){
-            if(!isEmpty(images)){
-
+    fetchPhotosFromLocal()
+        .then(function (images) {
+            return images.map(function (image) {
+                image.imageUrl = image.url;
+                image.description = image.url;
+                return image;
+            });
+        })
+        .then(function (images) {
+            if (!isEmpty(images)) {
                 displayPhotos(images);
-            }else {
+            } else {
                 displayMessage('nie ma zdjęć');
             }
         })
@@ -132,7 +138,7 @@ function main(){
         .finally(function () {
             loader.hide();
         })
-        
+
 }
 
 main();
